@@ -1,3 +1,4 @@
+import NotFound404 from '@/views/404'
 import React from 'react'
 import { Navigate } from 'react-router-dom'
 const Home = React.lazy(() => { return import('@/views/home') })
@@ -22,6 +23,10 @@ const routes = [
     {
         path: '/all',
         element: <All />
+    },
+    {
+        path: '/*',
+        element: <NotFound404/>
     },
 
 
