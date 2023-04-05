@@ -9,12 +9,13 @@ export const CenterWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    cursor: pointer;
 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
     .textarea span {
       padding: 0 14px;
       border-right: 1px solid #ddd;
-      cursor: pointer;
+      
     }
     ${(props) => props.theme.animation.boxShadow}
 
@@ -33,7 +34,6 @@ export const CenterWrapper = styled.div`
           position: absolute;
           top:10px;
           left:10px;
-          cursor: pointer;
       }
     }
   }

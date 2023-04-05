@@ -8,14 +8,14 @@ export const RightWrapper = styled.div`
     align-items: center;
     
   
-    span{
-        margin-right: 3px;
-    }
+   
     .btn{
         display: flex;
         align-items: center;
         cursor: pointer;
-       
+        span{
+        margin-right: 3px;
+    }
     }
     .btn span{
         padding: 5px 10px;
@@ -27,6 +27,9 @@ export const RightWrapper = styled.div`
 
     }
     .profile{
+        span{
+        margin-right: 8px;
+    }
         margin-right: 35px;
         border: 1px solid #dddddd;
         border-radius:18px;
