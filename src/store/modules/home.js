@@ -1,17 +1,27 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { getHomeHighCP } from "@/services";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+
+export const fetchHomeDataAction = createAsyncThunk("fetchData", async () => {
+  const res = await getHomeHighCP();
+
+  return res;
+});
 
 const homeSlice = createSlice({
-    name:'home',
-    initialState:{
-        productList:[
-            {id:1,title:'fan',price:99}
-        ]
+  name: "home",
+  initialState: {
+    highCP: {},
+  },
+  reducers: {
+    changeHighCPAction(state, { payload }) {
+      state.highCP = payload;
     },
-    reducers:{
-
-    }
-    }
-
-)
-const {} = homeSlice.actions
-export default homeSlice.reducer
+  },
+  extraReducers: {
+    [fetchHomeDataAction.fulfilled](state, { payload }) {
+      state.highCP = payload;
+    },
+  },
+});
+const { changeHighCPAction } = homeSlice.actions;
+export default homeSlice.reducer;
