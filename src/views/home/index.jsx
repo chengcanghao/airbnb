@@ -1,5 +1,4 @@
 import React, { memo, useEffect, useState } from 'react'
-import CCHRequest from '@/services'
 const Home = memo(() => {
   
   return (
