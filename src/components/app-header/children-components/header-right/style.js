@@ -4,7 +4,7 @@ export const RightWrapper = styled.div`
   flex: 1;
   color: ${(props) => props.theme.textColor.primaryColor};
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
 
   .btn {
@@ -24,7 +24,6 @@ export const RightWrapper = styled.div`
   }
   .profile {
     position: relative;
-    margin-right: 35px;
     .user {
       border: 1px solid #dddddd;
       border-radius: 18px;

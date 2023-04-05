@@ -6,6 +6,6 @@ export const LeftWrapper = styled.div`
     display: flex;
     .logo{
         cursor: pointer;
-        margin-left:35px;
+        
     }
 `

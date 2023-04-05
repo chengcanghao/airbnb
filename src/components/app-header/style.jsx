@@ -1,22 +1,19 @@
 import styled from "styled-components";
 
-
 export const HeaderWrapper = styled.div`
+  display: flex;
 
+  align-items: center;
 
-    display:flex;
+  height: 80px;
 
-    align-items: center;
+  top: 0;
 
-    height: 80px;
+  width: calc(100% - 160px);
 
-    border-bottom: 1px solid #eee;
+  position: fixed;
 
+  border-bottom: 1px solid #eee;
 
-
-
-
-
-
-
-`
+  background-color: white;
+`;
