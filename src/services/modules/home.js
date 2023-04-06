@@ -5,3 +5,8 @@ export function getHomeHighCP(){
         url:"/home/goodprice"
     })
 }
+export function getHomeHighScore(){
+    return CCHRequest.get({
+        url:"/home/highscore"
+    })
+}
