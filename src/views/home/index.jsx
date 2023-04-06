@@ -4,8 +4,7 @@ import { fetchHomeDataAction } from "@/store/modules/home";
 import HomeBanner from "./children-components/home-banner";
 import { HomeWrapper } from "./style";
 import SectionHeader from "@/components/section-header";
-import RoomItem from "@/components/room-item";
-import { Button } from "@mui/material";
+import SectionRooms from "@/components/section-rooms";
 const Home = memo(() => {
   const { HighCP } = useSelector((state) => {
     return { HighCP: state.home.highCP };
@@ -20,16 +19,9 @@ const Home = memo(() => {
       <div className="content">
         <div className="highCP">
           <SectionHeader title={HighCP.title} />
-          <ul className="room-list">
-            {HighCP.list?.map((item) => {
-              return <RoomItem itemData={item} key={item.id} />;
-            })}
-          </ul>
+          <SectionRooms roomList = {HighCP.list} />
         </div>
       </div>
-      <Button variant="text">Text</Button>
-      <Button variant="contained">Contained</Button>
-      <Button variant="outlined">Outlined</Button>
     </HomeWrapper>
   );
 });

@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const RoomWrapper = styled.div`
-box-sizing: border-box;
-width: calc(20%);
-padding: 14px;
+  box-sizing: border-box;
+  width: calc(20%);
+  padding: 14px;
 
   .cover {
     position: relative;
@@ -25,16 +25,21 @@ padding: 14px;
     margin: 10px 0 5px;
     font-size: 12px;
     font-weight: 700;
-    color: ${props=>props.verifyColor};
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    color: ${(props) => props.verifyColor};
   }
 
   .name {
     font-size: 16px;
     font-weight: 700;
-    overflow: hidden;  
-    text-overflow: ellipsis; 
-    display: -webkit-box; 
-    -webkit-line-clamp: 2; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
   }
 
@@ -43,23 +48,10 @@ padding: 14px;
   }
 
   .bottom {
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-
-    .rate {
-      .ant-rate {
-        font-size: 10px;
-        color: #39576a;
-
-        .ant-rate-star {
-          margin-right: 2px;
-        }
-      }
+    
+    .MuiRating-icon {
+      margin-left: -1px;
     }
-
-    .count {
-      margin: 0 3px;
-    }
+  
   }
-`
+`;
