@@ -9,9 +9,6 @@ export const HeaderWrapper = styled.div`
 
   top: 0;
 
-  width: calc(100% - 160px);
-
-  position: fixed;
 
   border-bottom: 1px solid #eee;
 
