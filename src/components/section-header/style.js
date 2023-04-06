@@ -8,6 +8,7 @@ color: #222;
   font-size: 22px;
   font-weight: 700;
   margin-bottom: 16px;
+  
 }
 
 .subtitle {

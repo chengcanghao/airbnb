@@ -9,7 +9,6 @@ export const HeaderWrapper = styled.div`
 
   top: 0;
 
-
   border-bottom: 1px solid #eee;
 
   background-color: white;
