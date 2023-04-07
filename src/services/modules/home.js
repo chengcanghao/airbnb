@@ -1,12 +1,18 @@
 import CCHRequest from "..";
 
-export function getHomeHighCP(){
+export function getHomeHighCPData(){
     return CCHRequest.get({
         url:"/home/goodprice"
     })
 }
-export function getHomeHighScore(){
+export function getHomeHighScoreData(){
     return CCHRequest.get({
         url:"/home/highscore"
+    })
+}
+
+export function getHomeDiscountData(){
+    return CCHRequest.get({
+        url:"/home/discount"
     })
 }

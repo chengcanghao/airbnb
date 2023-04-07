@@ -1,31 +1,42 @@
-import { getHomeHighCP, getHomeHighScore } from "@/services";
+import { getHomeDiscountData, getHomeHighCPData, getHomeHighScoreData } from "@/services";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-export const fetchHomeDataAction = createAsyncThunk("fetchHomeData", async () => {
-  const res = await getHomeHighCP();
+export const fetchHomeDataAction = createAsyncThunk("fetchHomeData", (payload,{dispatch}) => {
+  getHomeHighCPData().then((res)=>{
+    dispatch(changeHighCPAction(res))
+  })
+  getHomeHighScoreData().then((res)=>{
+    dispatch(changeHighScoreAction(res))
+  })
+  getHomeDiscountData().then((res)=>{
+    dispatch(changeDiscountAction(res))
+  })
 
-  return res;
-
-  const res2 = await getHomeHighScore();
-
-  return res2
 });
 
 const homeSlice = createSlice({
   name: "home",
   initialState: {
-    highCP: {},
+    highCPInfo: {},
+    highScoreInfo:{},
+    discountInfo:{}
   },
   reducers: {
-    // changeHighCPAction(state, { payload }) {
-    //   state.highCP = payload;
-    // },
-  },
-  extraReducers: {
-    [fetchHomeDataAction.fulfilled](state, { payload }) {
-      state.highCP = payload;
+    changeHighCPAction(state, { payload }) {
+      state.highCPInfo = payload;
     },
-  }
+    changeHighScoreAction(state,{payload}){
+      state.highScoreInfo = payload
+    },
+    changeDiscountAction(state,{payload}){
+      state.discountInfo = payload
+    }
+  },
+  // extraReducers: {
+  //   [fetchHomeDataAction.fulfilled](state, { payload }) {
+  //     state.highCP = payload;
+  //   },
+  // }
 });
-// const { changeHighCPAction } = homeSlice.actions;
+const { changeHighCPAction,changeHighScoreAction,changeDiscountAction } = homeSlice.actions;
 export default homeSlice.reducer;

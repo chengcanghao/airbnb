@@ -3,9 +3,10 @@ import React, { memo } from "react";
 import { RoomWrapper } from "./style";
 import { Rating } from "@mui/material";
 const RoomItem = memo((props) => {
-  const { itemData } = props;
+  const { itemData,itemWidth } = props;
   return (
-    <RoomWrapper verifyColor={itemData?.verify_info?.text_color || "#39576a"}>
+    <RoomWrapper verifyColor={itemData?.verify_info?.text_color || "#39576a"}
+    itemWidth={itemWidth}>
       <div className="inner">
         <div className="cover">
           <img src={itemData.picture_url} alt="" />
