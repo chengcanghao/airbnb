@@ -16,12 +16,12 @@ export const CenterWrapper = styled.div`
       padding: 0 14px;
       border-right: 1px solid #ddd;
       color:#717171ff;
-      ${(props) => props.theme.animation.textColor}
+      ${(props) => props.theme.animation.animation}
       &:hover{
         color: ${props=>props.theme.textColor.primaryColor};
         }
     }
-    ${(props) => props.theme.animation.boxShadow}
+    ${(props) => props.theme.animation.animation}
 
     &:hover {
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);

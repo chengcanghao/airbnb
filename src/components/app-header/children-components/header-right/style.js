@@ -5,6 +5,7 @@ export const RightWrapper = styled.div`
   color: ${(props) => props.theme.textColor.primaryColor};
   display: flex;
   justify-content: flex-end;
+      //margin-right: auto;
   align-items: center;
 
   .btn {
@@ -31,7 +32,7 @@ export const RightWrapper = styled.div`
       padding: 5px 0px 5px 12px;
       align-items: center;
       cursor: pointer;
-      ${(props) => props.theme.animation.boxShadow}
+      ${(props) => props.theme.animation.animation}
       &:hover {
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
       }  

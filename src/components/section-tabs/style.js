@@ -1,21 +1,19 @@
 import styled from "styled-components";
 
 export const SectionTabsWrapper = styled.div`
-  display: flex;
 
   .item {
-    /* flex-basis: 120px;
-  flex-shrink: 0; */
+    flex-basis: 500px;
+    flex-shrink: 0;
     box-sizing: border-box;
     padding: 6px 24px;
     margin-right: 20px;
-    border-radius: 3px;
+    border-radius: 6px;
     font-size: 17px;
     text-align: center;
     border: 0.5px solid #d8d8d8;
 
-    ${(props) => props.theme.animation.boxShadow}
-    ${(props) => props.theme.animation.textColor}
+    ${(props) => props.theme.animation.animation}
     &:hover {
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
       color: skyblue;
@@ -25,9 +23,9 @@ export const SectionTabsWrapper = styled.div`
     cursor: pointer;
   }
 
-  .active{
-    ${(props) => props.theme.animation.background}
-    background-color: ${props=>props.theme.color.secondaryColor};
-    color:white;
+  .active {
+    ${(props) => props.theme.animation.animation}
+    background-color: ${props => props.theme.color.secondaryColor};
+    color: white;
   }
 `;
