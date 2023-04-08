@@ -16,3 +16,8 @@ export function getHomeDiscountData(){
         url:"/home/discount"
     })
 }
+export function getHomeRecommendData(){
+    return CCHRequest.get({
+        url:"/home/hotRecommenddest"
+    })
+}
