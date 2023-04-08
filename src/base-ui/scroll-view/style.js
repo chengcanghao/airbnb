@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 export const ViewWrapper = styled.div`
-
   position: relative;
-  
+
   overflow: hidden;
 
   .left {
@@ -20,12 +19,8 @@ export const ViewWrapper = styled.div`
   }
 
   .scroll-content {
-    
     display: flex;
-    
-    ${props => props.theme.animation.animation}
 
+    ${(props) => props.theme.animation.animation}
   }
-
-
-`
+`;
