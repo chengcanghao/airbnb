@@ -44,6 +44,7 @@ const ScrollView = memo((props) => {
 
         setShowRightStatus(validDistanceRef.current > newOffset)
 
+        setShowLeftStatus(newOffset > 0)
     }
 
     function leftClickHandler() {
@@ -53,6 +54,8 @@ const ScrollView = memo((props) => {
         scrollContentRef.current.style.transform = `translate(${-newOffset}px)`
 
         setPositionIndex(positionIndex - 1)
+
+        setShowRightStatus(validDistanceRef.current > newOffset)
 
         setShowLeftStatus(newOffset > 0)
 
