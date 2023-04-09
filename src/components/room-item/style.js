@@ -8,7 +8,7 @@ export const RoomWrapper = styled.div`
   .cover {
     position: relative;
     box-sizing: border-box;
-    padding: 100% 8px 0;
+    padding: 90% 8px 0;
     border-radius: 15px;
     overflow: hidden;
 

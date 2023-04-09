@@ -3,7 +3,6 @@ export const LeftWrapper = styled.div`
     flex:1;
     color:${props=>props.theme.color.primaryColor};
     align-items: center;
-    display: flex;
     .logo{
         cursor: pointer;
         

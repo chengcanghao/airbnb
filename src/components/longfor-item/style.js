@@ -8,6 +8,8 @@ export const ItemWrapper = styled.div`
     border-radius: 2px;
   }
   .detail {
+
+
     color: white;
 
     display: flex;
