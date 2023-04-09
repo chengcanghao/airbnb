@@ -6,7 +6,7 @@ export const SectionTabsWrapper = styled.div`
     flex-basis: 500px;
     flex-shrink: 0;
     box-sizing: border-box;
-    padding: 6px 24px;
+    padding: 20px 24px;
     margin-right: 20px;
     border-radius: 6px;
     font-size: 17px;
