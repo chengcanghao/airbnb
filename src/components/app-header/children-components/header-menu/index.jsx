@@ -1,14 +1,14 @@
-import * as React from 'react';
-import ClickAwayListener from '@mui/material/ClickAwayListener';
-import Grow from '@mui/material/Grow';
-import Paper from '@mui/material/Paper';
-import Popper from '@mui/material/Popper';
-import MenuItem from '@mui/material/MenuItem';
-import MenuList from '@mui/material/MenuList';
-import Stack from '@mui/material/Stack';
-import MenuLogo from '@/assets/svg/menu_logo';
-import AvatarLogo from '@/assets/svg/avatar_logo';
-import { Link } from 'react-router-dom';
+import * as React from "react";
+import ClickAwayListener from "@mui/material/ClickAwayListener";
+import Grow from "@mui/material/Grow";
+import Paper from "@mui/material/Paper";
+import Popper from "@mui/material/Popper";
+import MenuItem from "@mui/material/MenuItem";
+import MenuList from "@mui/material/MenuList";
+import Stack from "@mui/material/Stack";
+import MenuLogo from "@/assets/svg/menu_logo";
+import AvatarLogo from "@/assets/svg/avatar_logo";
+import { Link } from "react-router-dom";
 
 export default function MenuListComposition() {
   const [open, setOpen] = React.useState(false);
@@ -27,10 +27,10 @@ export default function MenuListComposition() {
   };
 
   function handleListKeyDown(event) {
-    if (event.key === 'Tab') {
+    if (event.key === "Tab") {
       event.preventDefault();
       setOpen(false);
-    } else if (event.key === 'Escape') {
+    } else if (event.key === "Escape") {
       setOpen(false);
     }
   }
@@ -58,15 +58,14 @@ export default function MenuListComposition() {
         >
           Dashboard
         </Button> */}
-       
-        <div className="user"  ref={anchorRef} onClick={handleToggle}>
+
+        <div className="user" ref={anchorRef} onClick={handleToggle}>
           <span className="menu">
             <MenuLogo />
           </span>
           <span className="avatar">
             <AvatarLogo />
-          </span> 
-         
+          </span>
         </div>
         <Popper
           open={open}
@@ -75,14 +74,13 @@ export default function MenuListComposition() {
           placement="bottom-start"
           transition
           disablePortal
-          
         >
           {({ TransitionProps, placement }) => (
             <Grow
               {...TransitionProps}
               style={{
                 transformOrigin:
-                  placement === 'bottom-start' ? 'left top' : 'left bottom',
+                  placement === "bottom-start" ? "left top" : "left bottom",
               }}
             >
               <Paper>
@@ -92,14 +90,12 @@ export default function MenuListComposition() {
                     id="composition-menu"
                     aria-labelledby="composition-button"
                     onKeyDown={handleListKeyDown}
-                    
                   >
                     <MenuItem onClick={handleClose}>My account</MenuItem>
                     <MenuItem onClick={handleClose}>Logout</MenuItem>
                     <MenuItem onClick={handleClose}>Logout</MenuItem>
                     <MenuItem onClick={handleClose}>Logout</MenuItem>
                     <MenuItem onClick={handleClose}>Logout</MenuItem>
-                
                   </MenuList>
                 </ClickAwayListener>
               </Paper>
@@ -110,4 +106,3 @@ export default function MenuListComposition() {
     </Stack>
   );
 }
-
