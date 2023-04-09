@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const SectionTabsWrapper = styled.div`
 
   .item {
-    flex-basis: 500px;
+    flex-basis: 360px;
     flex-shrink: 0;
     box-sizing: border-box;
     padding: 20px 24px;

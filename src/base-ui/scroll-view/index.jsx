@@ -1,7 +1,8 @@
 import React, { memo, useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { ViewWrapper } from "@/base-ui/scroll-view/style";
-import transition from "react-transition-group/Transition";
+import IconRightArrow from "@/assets/svg/icon-right-arrow";
+import IconLeftArrow from "@/assets/svg/icon-left-arrow";
 
 const ScrollView = memo((props) => {
   const [showRightStatus, setShowRightStatus] = useState(false);
@@ -23,31 +24,17 @@ const ScrollView = memo((props) => {
 
     validDistanceRef.current = validDistance;
 
-    console.log(validDistanceRef.current);
-
     setShowRightStatus(validDistanceRef.current > 0);
   }, [props.children]);
 
-  function rightClickHandler() {
+  function clickHandler(isRight) {
+    const newPositionIndex = isRight ? positionIndex + 1 : positionIndex - 1;
     const newOffset =
-      scrollContentRef.current.children[positionIndex + 1].offsetLeft;
+      scrollContentRef.current.children[newPositionIndex].offsetLeft;
 
     scrollContentRef.current.style.transform = `translate(${-newOffset}px)`;
 
-    setPositionIndex(positionIndex + 1);
-
-    setShowRightStatus(validDistanceRef.current > newOffset);
-
-    setShowLeftStatus(newOffset > 0);
-  }
-
-  function leftClickHandler() {
-    const newOffset =
-      scrollContentRef.current.children[positionIndex - 1].offsetLeft;
-
-    scrollContentRef.current.style.transform = `translate(${-newOffset}px)`;
-
-    setPositionIndex(positionIndex - 1);
+    setPositionIndex(newPositionIndex);
 
     setShowRightStatus(validDistanceRef.current > newOffset);
 
@@ -57,17 +44,25 @@ const ScrollView = memo((props) => {
   return (
     <ViewWrapper>
       {showLeftStatus && (
-        <button className="left" onClick={leftClickHandler}>
-          left
-        </button>
+        <div className="left" onClick={(e) => clickHandler(false)}>
+          <div className="iconLeft">
+            <IconLeftArrow />
+          </div>
+        </div>
       )}
       {showRightStatus && (
-        <button className="right" onClick={rightClickHandler}>
-          right
-        </button>
+        <div className="right" onClick={(e) => clickHandler(true)}>
+          <div className="iconRight">
+            {" "}
+            <IconRightArrow />
+          </div>
+        </div>
       )}
-      <div className="scroll-content" ref={scrollContentRef}>
-        {props.children}
+      <div className="scroll">
+        {" "}
+        <div className="scroll-content" ref={scrollContentRef}>
+          {props.children}
+        </div>
       </div>
     </ViewWrapper>
   );

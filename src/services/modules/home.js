@@ -21,3 +21,9 @@ export function getHomeRecommendData(){
         url:"/home/hotRecommenddest"
     })
 }
+
+export function getHomeLongForData(){
+    return CCHRequest.get({
+        url:"/home/longfor"
+    })
+}
