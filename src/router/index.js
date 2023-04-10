@@ -1,6 +1,8 @@
 import NotFound404 from "@/views/404";
 import React, { Suspense } from "react";
 import { Navigate } from "react-router-dom";
+import Demo from '@/views/demo'
+
 const Home = React.lazy(() => {
   return import("@/views/home");
 });
@@ -10,7 +12,6 @@ const Detail = React.lazy(() => {
 const Entire = React.lazy(() => {
   return import("@/views/entire");
 });
-// import Home from '@/views/home'
 // import All from '@/views/all'
 // import Detail from '@/views/detail'
 const routes = [
@@ -39,6 +40,14 @@ const routes = [
     element: (
       <Suspense>
         <Entire />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/demo",
+    element: (
+      <Suspense>
+        <Demo />
       </Suspense>
     ),
   },
