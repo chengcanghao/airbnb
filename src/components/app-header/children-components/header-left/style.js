@@ -4,7 +4,6 @@ export const LeftWrapper = styled.div`
     color:${props=>props.theme.color.primaryColor};
     align-items: center;
     .logo{
-        cursor: pointer;
-        
+        cursor: pointer;        
     }
 `

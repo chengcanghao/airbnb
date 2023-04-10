@@ -3,7 +3,7 @@ import React, { memo, useEffect } from "react";
 import { EntireWrapper } from "./style";
 import Filters from "./children-components/entire-filters";
 import Rooms from "./children-components/entire-rooms";
-import Pagination from "./children-components/entire-pagination";
+import EntirePagination from "./children-components/entire-pagination";
 import { useDispatch } from "react-redux";
 import { fetchRoomListData } from "@/store/modules/entire/actionCreators";
 
@@ -16,7 +16,7 @@ const Entire = memo((props) => {
     <EntireWrapper>
       <Filters />
       <Rooms />
-      <Pagination />
+      <div className="pagination"><EntirePagination /></div>
     </EntireWrapper>
   );
 });

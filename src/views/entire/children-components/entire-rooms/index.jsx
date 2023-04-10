@@ -3,13 +3,15 @@ import React, { memo } from "react";
 import { RoomsWrapper } from "./style";
 import { shallowEqual, useSelector } from "react-redux";
 import RoomItem from "@/components/room-item";
+import { LinearProgress } from "@mui/material";
 
 const Rooms = memo((props) => {
-  const {roomList,currentPage,totalCount} = useSelector((state)=>{
+  const {roomList,currentPage,totalCount,loadingState} = useSelector((state)=>{
    return {
     roomList:state.entire.roomList,
     currentPage:state.entire.currentPage,
-    totalCount:state.entire.totalCount
+    totalCount:state.entire.totalCount,
+    loadingState:state.entire.loadingState
    }
   },shallowEqual)
   return <RoomsWrapper>
@@ -18,12 +20,18 @@ const Rooms = memo((props) => {
       roomList.map((item,index)=>{
 
         return (
-        <RoomItem key={item.id} itemData = {item} itemWidth = {100/6}/>
+        <RoomItem key={item._id} itemData = {item} itemWidth = {100/6}/>
 
        
         )
       })
     }</div>
+   {loadingState&&
+    <div className="mask">
+      <div className="progress"><LinearProgress/></div>
+      
+    </div>
+   } 
     
   </RoomsWrapper>;
 });
