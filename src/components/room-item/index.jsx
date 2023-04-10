@@ -9,10 +9,10 @@ const RoomItem = memo((props) => {
   const { itemData, itemWidth } = props;
   const carouselRef = useRef()
   function arrowClickHandler(type) {
-  if (type==='left') {
-    carouselRef.current.prev()
-  }else{
+  if (type) {
     carouselRef.current.next()
+  }else{
+    carouselRef.current.prev()
   }
   }
   return (
@@ -29,14 +29,14 @@ const RoomItem = memo((props) => {
                   <div className="control">
                     <div
                       className="left"
-                      onClick={(e) => arrowClickHandler("left")}
+                      onClick={(e) => arrowClickHandler(false)}
                     >
                       <IconLeftArrow width={18} height={18} />
                     </div>
 
                     <div
                       className="right"
-                      onClick={(e) => arrowClickHandler("right")}
+                      onClick={(e) => arrowClickHandler(true)}
                     >
                       <IconRightArrow width={18} height={18} />
                     </div>

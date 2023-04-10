@@ -4,7 +4,6 @@ import { Pagination } from '@mui/material'
 import { PaginationWrapper } from './style'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeCurrentPageAction, changeRoomListAction, fetchRoomListData } from '@/store/modules/entire/actionCreators'
-import { fetchHomeDataAction } from '@/store/modules/home'
 
 const EntirePagination = memo((props) => {
   const {totalCount,currentPages,roomList} =useSelector((state)=>{

@@ -9,7 +9,6 @@ export const FiltersWrapper = styled.div`
   align-items: center;
   height: 48px;
   padding-left: 16px;
-  border-bottom: 1px solid #f2f2f2;
   background-color: #fff;
 
   .filter {
