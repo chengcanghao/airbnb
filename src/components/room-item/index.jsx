@@ -1,19 +1,27 @@
 import PropTypes from "prop-types";
-import React, { memo, useRef } from "react";
+import React, { memo, useRef,useState } from "react";
 import { RoomWrapper } from "./style";
 import { Rating } from "@mui/material";
 import { Carousel } from "antd";
+import Indicator from '@/base-ui/indicator';
 import IconLeftArrow from "@/assets/svg/icon-left-arrow";
 import IconRightArrow from "@/assets/svg/icon-right-arrow";
+import classNames from 'classnames';
+
 const RoomItem = memo((props) => {
   const { itemData, itemWidth } = props;
-  const carouselRef = useRef()
+  const [selectIndex, setSelectIndex] = useState(0)
+  const carouselRef = useRef();
   function arrowClickHandler(type) {
-  if (type) {
-    carouselRef.current.next()
-  }else{
-    carouselRef.current.prev()
-  }
+    if (type) {
+      carouselRef.current.next();
+    } else {
+      carouselRef.current.prev();
+    }
+    let newIndex = type ? selectIndex + 1: selectIndex - 1
+    if (newIndex < 0) newIndex = itemData.picture_urls.length - 1
+    if (newIndex > itemData.picture_urls.length - 1) newIndex = 0
+    setSelectIndex(newIndex)
   }
   return (
     <RoomWrapper
@@ -21,26 +29,33 @@ const RoomItem = memo((props) => {
       itemWidth={itemWidth}
     >
       <div className="inner">
-        <div className="carousel" >
+        <div className="slider">
+          <div className="control">
+            <div className="left" onClick={(e) => arrowClickHandler(false)}>
+              <IconLeftArrow width={18} height={18} />
+            </div>
+
+            <div className="right" onClick={(e) => arrowClickHandler(true)}>
+              <IconRightArrow width={18} height={18} />
+            </div>
+          </div>
+          <div className='indicator'>
+            <Indicator selectIndex={selectIndex}>
+              {
+                itemData.picture_urls.map((item, index) => {
+                  return (
+                    <div className='item' key={item}>
+                      <span className={classNames("dot", {active: selectIndex === index})}></span>
+                    </div>
+                  )
+                })
+              }
+            </Indicator>
+          </div>
           <Carousel dots={false} ref={carouselRef}>
             {itemData?.picture_urls?.map((item) => {
               return (
                 <div className="cover" key={item}>
-                  <div className="control">
-                    <div
-                      className="left"
-                      onClick={(e) => arrowClickHandler(false)}
-                    >
-                      <IconLeftArrow width={18} height={18} />
-                    </div>
-
-                    <div
-                      className="right"
-                      onClick={(e) => arrowClickHandler(true)}
-                    >
-                      <IconRightArrow width={18} height={18} />
-                    </div>
-                  </div>
                   <img src={item} alt="" />
                 </div>
               );

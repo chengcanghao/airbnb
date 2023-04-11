@@ -4,7 +4,17 @@ export const RoomWrapper = styled.div`
   box-sizing: border-box;
   width: ${(props) => props.itemWidth}%;
   padding: 14px;
-
+  .inner {
+    width: 100%;
+  }
+  .slider {
+    position: relative;
+    &:hover {
+      .control {
+        display: flex;
+      }
+    }
+  }
   .cover {
     position: relative;
     box-sizing: border-box;
@@ -19,23 +29,18 @@ export const RoomWrapper = styled.div`
       height: 100%;
       object-fit: cover;
     }
-    &:hover {
-      .control {
-        display: flex;
-      }
-    }
-    .control {
-      display: none;
-      justify-content: space-between;
-      position: absolute;
-      left: 0;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 9;
-      width: 100%;
-      color: lightgray;
-    }
+  }
+  .control {
+    display: none;
+    justify-content: space-between;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9;
+    width: 100%;
+    color: lightgray;
     .left {
       display: flex;
       align-items: center;
@@ -64,6 +69,34 @@ export const RoomWrapper = styled.div`
       }
     }
   }
+  
+  .indicator {
+      position: absolute;
+      z-index: 9;
+      width: 30%;
+      left: 0;
+      right: 0;
+      bottom: 10px;
+      margin: 0 auto;
+
+      .item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20%;
+
+        .dot {
+          width: 6px;
+          height: 6px;
+          background-color: #fff;
+          border-radius: 50%;
+          &.active {
+            width: 8px;
+            height: 8px;
+          }
+        }
+      }
+    }
   .description {
     margin: 10px 0 5px;
     font-size: 12px;

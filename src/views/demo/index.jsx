@@ -4,23 +4,23 @@ import React, { memo, useState } from "react";
 import { DemoWrapper } from "./style";
 
 const Demo = memo((props) => {
-  const names = [
-    "asd",
-    "sdfdf",
-    "sdfsdf",
-    "sdffsdf",
-    "sdfsdfs",
-    "qwrwer",
-    "a",
-    "as",
-  ];
   const [selectIndex, setSelectIndex] = useState(0);
+  const names = [
+    "a",
+    "s",
+    "f",
+    "g",
+    "j",
+    "k",
+    "p",
+    "i",
+    "q","e","r","t","y","u"
+  ];
   function toggleClickHandler(type) {
     let newIndex = type ? selectIndex + 1 : selectIndex - 1;
     if (newIndex < 0) newIndex = names.length - 1;
     if (newIndex > names.length - 1) newIndex = 0;
     setSelectIndex(newIndex);
-    console.log(newIndex);
   }
   return (
     <DemoWrapper>
@@ -31,7 +31,7 @@ const Demo = memo((props) => {
           <button onClick={(e) => toggleClickHandler(true)}>next</button>
         </div>
         <div className="list">
-          <Indicator>
+          <Indicator selectIndex={selectIndex}>
             {names.map((item) => {
               return <button key={item}>{item}</button>;
             })}
