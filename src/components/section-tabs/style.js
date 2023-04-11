@@ -8,7 +8,6 @@ export const SectionTabsWrapper = styled.div`
     box-sizing: border-box;
     padding: 20px 24px;
     margin-right: 20px;
-    border-radius: 6px;
     font-size: 17px;
     text-align: center;
     border: 0.5px solid #d8d8d8;

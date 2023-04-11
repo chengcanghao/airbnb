@@ -10,24 +10,27 @@ const DetailBrowser = memo(() => {
     })
   return (
     <DetailBrowserWrapper>
-      <div className="detail">
+      <div className="top">
         <div className="left">
+          <div className="item">
             <img src={detailInfo.picture_url} alt="" />
-        </div>
-         <div className="right">
-          <div className="top">
-            <div><img src={detailInfo.picture_urls[0]} alt="" /></div>
-            <div><img src={detailInfo.picture_urls[0]} alt="" /></div>
-          </div>
-
-          <div className="bottom">
-            <div><img src={detailInfo.picture_urls[0]} alt="" /></div>
-            <div><img src={detailInfo.picture_urls[0]} alt="" /></div>
+            <div className="cover"></div>
           </div>
         </div>
-       
-       
+      
+        
+        <div className="right">
+          {
+            detailInfo.picture_urls.slice(1,5).map((item,index)=>{
+              return <div className="item" key={index}>
+                <img src={item} alt="" />
+                <div className="cover"></div>
+              </div>
+            })
+          }
+        </div>
       </div>
+    
     </DetailBrowserWrapper>
   );
 });
