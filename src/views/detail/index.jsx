@@ -1,12 +1,13 @@
 import React, { memo } from 'react'
 import { useSelector } from 'react-redux'
+import DetailBrowser from './children-components/detailBrowser'
 
 const Detail = memo(() => {
   const {detailInfo} = useSelector((state)=>{
    return {detailInfo:state.detail.detailInfo} 
   })
   return (
-    <div>{detailInfo.name}</div>
+    <div><DetailBrowser/></div>
   )
 })
 

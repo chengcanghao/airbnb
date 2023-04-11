@@ -23,6 +23,7 @@ const Rooms = memo((props) => {
 
   const itemClickHandler = useCallback((item)=>{
     dispatch(changeDetailInfoAction(item))
+    console.log(item);
     navigate('/detail')
   },[navigate])
   return (
