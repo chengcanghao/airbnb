@@ -1,9 +1,14 @@
-import PropTypes from 'prop-types'
 import React, { memo } from 'react'
 import { SectionFooterWrapper } from './style'
 import IconMoreArrow from '@/assets/svg/icon-more-arrow'
+import { useNavigate } from 'react-router-dom'
 
 const SectionFooter = memo((props) => {
+  const navigate = useNavigate()
+
+  function navigateHandler(){
+    navigate('/entire')
+  }
   const {name} = props
   let shownName = ""
   if(name){
@@ -14,7 +19,7 @@ const SectionFooter = memo((props) => {
   }
   return (
     <SectionFooterWrapper>
-        <div className="info">
+        <div className="info" onClick={navigateHandler}>
             <span className='more'>显示
             <span className='name'>
               {shownName}
@@ -26,6 +31,5 @@ const SectionFooter = memo((props) => {
   )
 })
 
-SectionFooter.propTypes = {}
 
 export default SectionFooter

@@ -9,7 +9,7 @@ import IconRightArrow from "@/assets/svg/icon-right-arrow";
 import classNames from 'classnames';
 
 const RoomItem = memo((props) => {
-  const { itemData, itemWidth } = props;
+  const { itemData, itemWidth, itemClick } = props;
   const [selectIndex, setSelectIndex] = useState(0)
   const carouselRef = useRef();
   function arrowClickHandler(type) {
@@ -23,13 +23,20 @@ const RoomItem = memo((props) => {
     if (newIndex > itemData.picture_urls.length - 1) newIndex = 0
     setSelectIndex(newIndex)
   }
+
+  function itemClickHandler(){
+    if (itemClick) {
+      itemClick()
+    }
+  }
   return (
     <RoomWrapper
       verifyColor={itemData?.verify_info?.text_color || "#39576a"}
       itemWidth={itemWidth}
+      onClick={itemClickHandler}
     >
-      <div className="inner">
-        <div className="slider">
+      <div className="inner">{
+        itemData.picture_urls? <div className="slider">
           <div className="control">
             <div className="left" onClick={(e) => arrowClickHandler(false)}>
               <IconLeftArrow width={18} height={18} />
@@ -61,7 +68,11 @@ const RoomItem = memo((props) => {
               );
             })}
           </Carousel>
-        </div>
+        </div>: <div className="cover" >
+                  <img src={itemData.picture_url} alt="" />
+                </div>
+      }
+        
         <div className="description">
           {itemData.verify_info.messages.join("·")}
         </div>

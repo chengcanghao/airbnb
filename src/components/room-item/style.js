@@ -4,8 +4,10 @@ export const RoomWrapper = styled.div`
   box-sizing: border-box;
   width: ${(props) => props.itemWidth}%;
   padding: 14px;
+  cursor: pointer;
   .inner {
-    width: 100%;
+    width: 100%;   
+
   }
   .slider {
     position: relative;
@@ -15,14 +17,14 @@ export const RoomWrapper = styled.div`
       }
     }
   }
-  .cover {
+  .cover { border-radius: 50px;
     position: relative;
     box-sizing: border-box;
     padding: 100% 8px 0;
-    overflow: hidden;
 
     img {
-      position: absolute;
+      position: absolute;    
+
       left: 0;
       top: 0;
       width: 100%;
@@ -33,6 +35,7 @@ export const RoomWrapper = styled.div`
   .control {
     display: none;
     justify-content: space-between;
+    align-items: center;
     position: absolute;
     left: 0;
     top: 0;
@@ -45,7 +48,7 @@ export const RoomWrapper = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100%;
+      height: 20%;
       width: 20%;
       cursor: pointer;
       ${(props) => props.theme.animation.animation}
@@ -58,7 +61,7 @@ export const RoomWrapper = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100%;
+      height: 20%;
       width: 20%;
       cursor: pointer;
       ${(props) => props.theme.animation.animation}
