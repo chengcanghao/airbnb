@@ -8,7 +8,6 @@ export const DetailBrowserWrapper = styled.div`
     .left {
       padding: 2px;
       width: 50%;
-      height: 400px;
       border: 1px solid #000;
       img{
         width: 100%;
@@ -19,11 +18,9 @@ export const DetailBrowserWrapper = styled.div`
     .right {
       padding: 2px;
       width: 50%;
-      height: 400px;
       border: 1px solid #000;
 
       .top {
-        height: 200px;
         display: flex;
         justify-content: space-between;
         div{
@@ -36,7 +33,6 @@ export const DetailBrowserWrapper = styled.div`
         }
       }
       .bottom {
-        height: 200px;
         display: flex;
         justify-content: space-between;
         div{
