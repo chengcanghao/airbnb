@@ -1,18 +1,19 @@
 import React, { memo } from "react";
-import { DetailBrowserWrapper } from "./style";
+import { DetailPictureWrapper } from "./style";
 import { useSelector } from "react-redux";
 
-const DetailBrowser = memo(() => {
+const DetailPicture = memo((props) => {
+  const{onShowStateChange} =  props
     const {detailInfo} = useSelector(state=>{
         return{
             detailInfo:state.detail.detailInfo
         }
     })
   return (
-    <DetailBrowserWrapper>
+    <DetailPictureWrapper>
       <div className="top">
-        <div className="left">
-          <div className="item">
+        <div className="left" >
+          <div className="item" onClick={onShowStateChange}>
             <img src={detailInfo.picture_url} alt="" />
             <div className="cover"></div>
           </div>
@@ -22,7 +23,7 @@ const DetailBrowser = memo(() => {
         <div className="right">
           {
             detailInfo.picture_urls.slice(1,5).map((item,index)=>{
-              return <div className="item" key={index}>
+              return <div className="item" key={index} onClick={onShowStateChange}>
                 <img src={item} alt="" />
                 <div className="cover"></div>
               </div>
@@ -30,9 +31,9 @@ const DetailBrowser = memo(() => {
           }
         </div>
       </div>
-    
-    </DetailBrowserWrapper>
+      
+    </DetailPictureWrapper>
   );
 });
 
-export default DetailBrowser;
+export default DetailPicture;

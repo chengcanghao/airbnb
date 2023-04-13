@@ -1,47 +1,45 @@
-import PropTypes from 'prop-types'
-import React, { memo, useEffect, useRef } from 'react'
-import { IndicatorWrapper } from './style'
+import PropTypes from "prop-types";
+import React, { memo, useEffect, useRef } from "react";
+import { IndicatorWrapper } from "./style";
 
 const Indicator = memo((props) => {
-  const {selectIndex=0} = props
-  const contentRef = useRef()
-  useEffect(()=>{
+  const { selectIndex = 0 } = props;
+  const contentRef = useRef();
+  useEffect(() => {
+    const selectItemElement = contentRef.current.children[selectIndex];
 
-    const selectItemElement = contentRef.current.children[selectIndex]
+    const itemLeft = selectItemElement.offsetLeft;
 
-    const itemLeft = selectItemElement.offsetLeft
+    const itemWidth = selectItemElement.clientWidth;
 
-    const itemWidth = selectItemElement.clientWidth
+    const contentWidth = contentRef.current.clientWidth;
 
-    const contentWidth = contentRef.current.clientWidth
+    const contentScroll = contentRef.current.scrollWidth;
 
-    const contentScroll = contentRef.current.scrollWidth
+    let distance = itemLeft + itemWidth * 0.5 - contentWidth * 0.5;
 
-    let distance = itemLeft + itemWidth*0.5 -contentWidth*0.5
-
-    if (distance<0) {
-      distance = 0
+    if (distance < 0) {
+      distance = 0;
     }
 
-    const totalDistance = contentScroll - contentWidth
-    
-    if (distance>totalDistance) {
-      distance = totalDistance
-    }
-    contentRef.current.style.transform = `translate(${-distance}px)`
+    const totalDistance = contentScroll - contentWidth;
 
-  },[selectIndex])
+    if (distance > totalDistance) {
+      distance = totalDistance;
+    }
+    contentRef.current.style.transform = `translate(${-distance}px)`;
+  }, [selectIndex]);
   return (
-   <IndicatorWrapper>
-    <div className="i-content" ref={contentRef}>
-      {props.children}
-    </div>
-   </IndicatorWrapper>
-  )
-})
+    <IndicatorWrapper>
+      <div className="i-content" ref={contentRef}>
+        {props.children}
+      </div>
+    </IndicatorWrapper>
+  );
+});
 
 Indicator.propTypes = {
-  selectIndex:PropTypes.number
-}
+  selectIndex: PropTypes.number,
+};
 
-export default Indicator
+export default Indicator;
