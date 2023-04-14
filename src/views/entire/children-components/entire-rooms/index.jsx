@@ -5,6 +5,7 @@ import RoomItem from "@/components/room-item";
 import { LinearProgress } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { changeDetailInfoAction } from "@/store/modules/detail";
+import { changeHeaderConfigAction } from "@/store/modules/main";
 
 const Rooms = memo((props) => {
   const navigate = useNavigate()
@@ -23,7 +24,7 @@ const Rooms = memo((props) => {
 
   const itemClickHandler = useCallback((item)=>{
     dispatch(changeDetailInfoAction(item))
-    console.log(item);
+    dispatch(changeHeaderConfigAction({isFixed:true}))
     navigate('/detail')
   },[navigate])
   return (

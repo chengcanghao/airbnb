@@ -7,6 +7,7 @@ import HomeSectionV1 from "./children-components/home-section-v1";
 import HomeSectionV2 from "./children-components/home-section-v2";
 import HomeSectionV3 from "./children-components/home-section-v3";
 import { objectEmptyOrNot } from "@/utilities";
+import { changeHeaderConfigAction } from "@/store/modules/main";
 const Home = memo(() => {
   const {
     highCPInfo,
@@ -26,6 +27,7 @@ const Home = memo(() => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchHomeDataAction());
+    dispatch(changeHeaderConfigAction({isFixed:true}))
   }, [dispatch]);
 
   return (

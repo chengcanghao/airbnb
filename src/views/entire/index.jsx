@@ -6,11 +6,13 @@ import Rooms from "./children-components/entire-rooms";
 import EntirePagination from "./children-components/entire-pagination";
 import { useDispatch } from "react-redux";
 import { fetchRoomListData } from "@/store/modules/entire/actionCreators";
+import { changeHeaderConfigAction } from "@/store/modules/main";
 
 const Entire = memo((props) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchRoomListData());
+    dispatch(changeHeaderConfigAction({isFixed:true}))
   }, [dispatch]);
   return (
     <EntireWrapper>

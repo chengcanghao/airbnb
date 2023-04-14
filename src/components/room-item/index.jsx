@@ -12,7 +12,7 @@ const RoomItem = memo((props) => {
   const { itemData, itemWidth, itemClick } = props;
   const [selectIndex, setSelectIndex] = useState(0)
   const carouselRef = useRef();
-  function arrowClickHandler(type) {
+  function arrowClickHandler(type,e) {
     if (type) {
       carouselRef.current.next();
     } else {
@@ -22,6 +22,7 @@ const RoomItem = memo((props) => {
     if (newIndex < 0) newIndex = itemData.picture_urls.length - 1
     if (newIndex > itemData.picture_urls.length - 1) newIndex = 0
     setSelectIndex(newIndex)
+    e.stopPropagation()
   }
 
   function itemClickHandler(){
@@ -38,11 +39,11 @@ const RoomItem = memo((props) => {
       <div className="inner">{
         itemData.picture_urls? <div className="slider">
           <div className="control">
-            <div className="left" onClick={(e) => arrowClickHandler(false)}>
+            <div className="left" onClick={(e) => arrowClickHandler(false,e)}>
               <IconLeftArrow width={18} height={18} />
             </div>
 
-            <div className="right" onClick={(e) => arrowClickHandler(true)}>
+            <div className="right" onClick={(e) => arrowClickHandler(true,e)}>
               <IconRightArrow width={18} height={18} />
             </div>
           </div>

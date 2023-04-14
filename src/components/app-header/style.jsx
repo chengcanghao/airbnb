@@ -10,4 +10,12 @@ export const HeaderWrapper = styled.div`
   border-bottom: 1px solid #eee;
 
   background-color: white;
+
+  &.fixed{
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 80px;
+    right: 80px;
+  }
 `
