@@ -7,10 +7,7 @@ import SearchTabs from "./children-components/search-tabs";
 const HeadCenter = memo(() => {
   const [tabIndex, setTabIndex] = useState(0);
   const titles = searchTitles.map((item) => item.title);
-  function tabIndexChangeHandler(index){
-    console.log('a');
-    setTabIndex(index)
-  }
+
   return (
     <CenterWrapper>
       {/* <div className="search-bar">
@@ -26,7 +23,7 @@ const HeadCenter = memo(() => {
       </div>
     </div> */}
       <div className="search-detail">
-        <SearchTabs titles={titles} tabClick={tabIndexChangeHandler} />
+        <SearchTabs titles={titles} tabClick={(index)=>setTabIndex(index)} />
       </div>
     </CenterWrapper>
   );
