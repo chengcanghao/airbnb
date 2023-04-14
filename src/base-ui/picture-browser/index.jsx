@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
-import React, { memo, useState ,useEffect} from "react";
+import React, { memo, useState, useEffect } from "react";
+import { CSSTransition, SwitchTransition } from "react-transition-group";
 import { PictureBrowserWrapper } from "./style";
 import CloseLogo from "@/assets/svg/close_logo";
 import Indicator from "../indicator";
@@ -7,8 +8,9 @@ import IconLeftArrow from "@/assets/svg/icon-left-arrow";
 import IconRightArrow from "@/assets/svg/icon-right-arrow";
 
 const PictureBrowser = memo((props) => {
-  const { onShowStateChange ,detailInfo } = props;
-  const [selectIndex,setSelectIndex] = useState(0)
+  const { onShowStateChange, detailInfo } = props;
+  const [selectIndex, setSelectIndex] = useState(0);
+  const [isRight,setIsRight] = useState()
   useEffect(() => {
     document.body.style.overflow = "hidden";
   }, []);
@@ -26,7 +28,8 @@ const PictureBrowser = memo((props) => {
     if (newIndex < 0) {
       newIndex = detailInfo.picture_urls.length - 1;
     }
-    setSelectIndex(newIndex)
+    setIsRight(type)
+    setSelectIndex(newIndex);
   }
   return (
     <PictureBrowserWrapper isRight={isRight}>
@@ -37,8 +40,19 @@ const PictureBrowser = memo((props) => {
       </div>
       <div className="slider">
         <div className="control">
-          <div className="left" onClick={e=>pictureChangeHandler(false)}><IconLeftArrow width={30} height={30}/></div>
-          <div className="right" onClick={e=>pictureChangeHandler(true)}><IconRightArrow width={30} height={30}/></div>
+          <div className="left" onClick={(e) => pictureChangeHandler(false)}>
+            <IconLeftArrow width={30} height={30} />
+          </div>
+          <div className="right" onClick={(e) => pictureChangeHandler(true)}>
+            <IconRightArrow width={30} height={30} />
+          </div>
+        </div>
+        <div className="item">
+          <SwitchTransition mode="in-out">
+            <CSSTransition key={detailInfo.picture_urls[selectIndex] } classNames="pic" timeout={200}>
+              <img src={detailInfo.picture_urls[selectIndex]} alt="" />
+            </CSSTransition>
+          </SwitchTransition>{" "}
         </div>
       </div>
       <div className="indicator">
