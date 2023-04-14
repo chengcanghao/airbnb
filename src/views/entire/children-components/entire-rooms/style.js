@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const RoomsWrapper = styled.div`
-  padding-top: 30px;
+  padding-top: 130px;
   position: relative;
   .list {
     display: flex;

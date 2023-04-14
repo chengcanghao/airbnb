@@ -3,7 +3,9 @@ import { useRoutes } from 'react-router-dom'
 import routes from '@/router'
 import AppHeader from './components/app-header'
 import AppFooter from './components/app-footer'
+import useScrollToTop from './hooks/useScroll'
 const App = memo(() => {
+  useScrollToTop()  
   return (
     <div className='app'>
       <div className='header'>

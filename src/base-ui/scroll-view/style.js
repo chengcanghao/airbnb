@@ -19,7 +19,7 @@ export const ViewWrapper = styled.div`
     height: 30px;
     top: 50%;
     left: 0%;
-    transform: translate(-50%, -50%);
+    transform: translate(0, -50%);
     border: 0.5px solid rgb(0 0 0/0.3);
     background-color: white;
     border-radius: 50%;
@@ -45,7 +45,7 @@ export const ViewWrapper = styled.div`
     height: 30px;
     top: 50%;
     right: 0%;
-    transform: translate(50%, -50%);
+    transform: translate(0, -50%);
     border: 0.5px solid rgb(0 0 0/0.3);
     background-color: white;
     border-radius: 50%;
