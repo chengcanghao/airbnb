@@ -21,7 +21,6 @@ export const HeaderWrapper = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 102px;
       background-color: white;
       border-bottom: 1px solid #eee;
     }
@@ -30,9 +29,16 @@ export const HeaderWrapper = styled.div`
   .mask {
     position: fixed;
     top: 184px;
-    right: 0;
-    left: 0;
+    right: 80px;
+    left: 80px;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.18);
+    background-color: rgba(0, 0, 0, 0.38);
   }
-`;
+  
+    
+`
+export const SearchAreaWrapper = styled.div`
+  ${props => props.theme.animation.animation}
+  height: ${props => props.isSearch ? "103" : "0"}px;
+  background-color: white;
+`

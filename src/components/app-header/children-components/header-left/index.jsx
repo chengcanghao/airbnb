@@ -1,20 +1,22 @@
-import React, { memo } from "react";
-import { LeftWrapper } from "./style";
+import React, {memo} from "react";
+import {LeftWrapper} from "./style";
 import IconLogo from "@/assets/svg/icon_logo";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const HeaderLeft = memo(() => {
-  const navigate = useNavigate();
-  function logoClickHandler() {
-    navigate("/home")
-  }
-  return (
-    <LeftWrapper>
-      <div className="logo" onClick={logoClickHandler}>
-        <IconLogo />
-      </div>
-    </LeftWrapper>
-  );
+    const navigate = useNavigate();
+
+    function logoClickHandler() {
+        navigate("/home")
+    }
+
+    return (
+        <LeftWrapper>
+            <div className="logo" onClick={logoClickHandler}>
+                <IconLogo/>
+            </div>
+        </LeftWrapper>
+    );
 });
 
 export default HeaderLeft;
