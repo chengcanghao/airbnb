@@ -25,18 +25,41 @@ export const PictureBrowserWrapper = styled.div`
   .slider {
     display: flex;
     flex: 1;
-    width: 80%;
+    width: 100%;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 
     .item {
       flex: 1;
+      overflow: hidden;
+      position: relative;
+      width: 100% !important;
+      max-width: 150vh !important;
+
       img {
-        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
         height: 100%;
-        object-fit: scale-down;
       }
+    }
+    .pic-enter {
+      transform: translate( ${props=>props.isRight? "100%":"-100%"});
+      opacity: 0;
+      transition: all 0.2s cubic-bezier(0.5, 1, 0.89, 1);
+    }
+    .pic-enter-active {
+      transform: translate(0);
+      opacity: 1;
+    }
+    .pic-exit {
+      opacity: 1;
+    }
+    .pic-exit-active {
+      opacity: 0;
+      transition: all 0.2s cubic-bezier(0.5, 1, 0.89, 1);
     }
     .control {
       position: absolute;
@@ -50,7 +73,6 @@ export const PictureBrowserWrapper = styled.div`
         cursor: pointer;
       }
       .right {
-      
         margin-right: 5%;
         cursor: pointer;
       }
