@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const CenterWrapper = styled.div`
-  .search-bar {
+  /* .search-bar {
     width: 350px;
     height: 46px;
     border: 1px solid #ddd;
@@ -15,11 +15,11 @@ export const CenterWrapper = styled.div`
     .textarea span {
       padding: 0 14px;
       border-right: 1px solid #ddd;
-      color:#717171ff;
+      color: #717171ff;
       ${(props) => props.theme.animation.animation}
-      &:hover{
-        color: ${props=>props.theme.textColor.primaryColor};
-        }
+      &:hover {
+        color: ${(props) => props.theme.textColor.primaryColor};
+      }
     }
     ${(props) => props.theme.animation.animation}
 
@@ -40,5 +40,24 @@ export const CenterWrapper = styled.div`
         left: 10px;
       }
     }
-  }
+  } */
+
+  /* .search-tabs {
+    display: flex;
+    justify-content: center;
+    .item {
+      position: relative;
+      font-size: 16px;
+      padding: 4px;
+      cursor: pointer;
+      &:hover .bottom{
+        position: absolute;
+        bottom: 0px;
+        left: 4px;
+        height: 2px;
+        width: 64px;
+        background-color: #333;
+      }
+    }
+  } */
 `;

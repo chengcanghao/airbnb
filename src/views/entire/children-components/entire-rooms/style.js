@@ -17,8 +17,8 @@ export const RoomsWrapper = styled.div`
     right: 0;
     bottom: 0;
     background-color: rgba(255, 255, 255, 0.618);
-    .progress{
-      margin-top: 2px;
+    .progress {
+      margin-top: 127px;
     }
   }
 `;

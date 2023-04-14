@@ -43,6 +43,8 @@ export const PictureBrowserWrapper = styled.div`
         right: 0;
         margin: 0 auto;
         height: 100%;
+        user-select: none;
+        object-fit: cover;
       }
     }
     .pic-enter {
@@ -63,17 +65,19 @@ export const PictureBrowserWrapper = styled.div`
     }
     .control {
       position: absolute;
+      z-index: 99;
       top: 50%;
-      left: 0;
       display: flex;
       width: 100%;
-      justify-content: space-between;
+      justify-content: space-between;        
+      cursor: pointer;
+
       .left {
-        margin-left: 5%;
+        margin-left: 10%;
         cursor: pointer;
       }
       .right {
-        margin-right: 5%;
+        margin-right: 10%;
         cursor: pointer;
       }
     }
